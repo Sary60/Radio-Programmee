@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "stations": [
+    {
+      "name": "Chérie FM",
+      "urls": [
+        "https://streaming.nrjaudio.fm/ouuku85n3nje?origine=fluxradios",
+        "https://scdn.nrjaudio.fm/adwz1/fr/30201/mp3_128.mp3"
+      ]
+    },
+    {
+      "name": "RTL",
+      "urls": [
+        "https://streamer-02.rtl.fr/rtl-1-44-128",
+        "https://streamer-01.rtl.fr/rtl-1-44-128"
+      ]
+    },
+    {
+      "name": "RFM",
+      "urls": [
+        "https://stream.rfm.fr/rfm.mp3"
+      ]
+    },
+    {
+      "name": "Nostalgie",
+      "urls": [
+        "https://streaming.nrjaudio.fm/oug7girb92oc?origine=fluxradios",
+        "https://scdn.nrjaudio.fm/adwz1/fr/30601/mp3_128.mp3"
+      ]
+    },
+    {
+      "name": "NRJ",
+      "urls": [
+        "https://scdn.nrjaudio.fm/adwz1/fr/30001/mp3_128.mp3"
+      ]
+    },
+    {
+      "name": "France Inter",
+      "urls": [
+        "https://icecast.radiofrance.fr/franceinter-midfi.mp3"
+      ]
+    }
+  ]
+}
