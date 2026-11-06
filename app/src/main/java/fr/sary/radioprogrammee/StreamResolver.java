@@ -55,9 +55,11 @@ public final class StreamResolver {
        if(StationCatalog.valid(u)&&!u.equals(original))urls.add(u);
       }
      }
-     if(!urls.isEmpty())break;
+     // Continuer sur les autres serveurs pour recuperer plus de flux
     }catch(Exception ignored){}
    }
+   android.util.Log.i("RadioRepair","Radio: "+name+" - "+urls.size()+" flux alternatifs trouves");
+   for(String u:urls)android.util.Log.i("RadioRepair","Flux candidat: "+u);
    callback.complete(urls.toArray(new String[0]));
   },"radio-stream-repair").start();
  }
