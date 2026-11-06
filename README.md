@@ -1,9 +1,5 @@
-# Radio Programmée V1.4 Premium
+Radio Programmée V1.5 Premium — réparation automatique des flux favoris.
 
-- Aucune radio préinstallée dans l’interface.
-- Recherche de radios via Radio Browser et écoute immédiate.
-- Une seule section « Mes favoris » ; vide à l’installation neuve.
-- Appui long pour retirer un favori.
-- Programmations automatiques conservées ; lecture uniquement après sélection d’un flux valide.
-- Mise à jour V1.3 vers V1.4 : favoris existants conservés ; ancienne sélection des six stations effacée.
-- Installer l’APK par-dessus la version existante pour conserver les données. Désinstaller ou effacer les données supprime aussi les favoris et horaires.
+Lorsque la lecture échoue, l’application consulte plusieurs serveurs Radio Browser et essaie des adresses alternatives associées au même identifiant de station ou au même nom exact et pays. Une adresse n’est enregistrée dans les favoris qu’après le démarrage effectif de la lecture. Le bouton « Réparer cette radio » permet de déclencher la recherche manuellement. Les favoris et programmations existants sont conservés.
+
+Limites : l’annuaire peut ne pas disposer d’un flux alternatif; certains serveurs ne fonctionnent pas avec Android MediaPlayer. La réparation nécessite Internet.
