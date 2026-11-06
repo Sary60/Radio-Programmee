@@ -3,15 +3,18 @@ import android.app.*;import android.content.*;import android.media.*;import andr
 public class RadioService extends Service {
  public static final String EVENT="fr.sary.radioprogrammee.PLAYBACK_STATUS";
  MediaPlayer player;Handler handler=new Handler(Looper.getMainLooper());boolean playing=false;
- int retries=0,attempt=0,station=0;String currentUrl="";String[] candidates=new String[0];
+ int retries=0,attempt=0,station=7;String currentUrl="";String[] candidates=new String[0];
  Runnable timeout;
  public void onCreate(){super.onCreate();NotificationChannel channel=new NotificationChannel("radio","Lecture radio",NotificationManager.IMPORTANCE_LOW);((NotificationManager)getSystemService(NOTIFICATION_SERVICE)).createNotificationChannel(channel);}
  Notification notification(String state){return new Notification.Builder(this,"radio").setContentTitle("Radio Programmée").setContentText(state).setSmallIcon(android.R.drawable.ic_media_play).build();}
  void report(String state){Schedule.prefs(this).edit().putString("playback_state",state).putInt("playback_station",station).apply();sendBroadcast(new Intent(EVENT).setPackage(getPackageName()).putExtra("state",state).putExtra("station",station));}
  public int onStartCommand(Intent i,int flags,int id){
   if(i!=null&&"STOP".equals(i.getAction())){playing=false;handler.removeCallbacksAndMessages(null);release();report("stopped");stopForeground(true);stopSelf();return START_NOT_STICKY;}
-  int wanted=Schedule.prefs(this).getInt("station",0);
-  String url=Schedule.prefs(this).getString("url",StationCatalog.DEFAULTS[0][0]);
+  int wanted=Schedule.prefs(this).getInt("station",7);
+  String url=Schedule.prefs(this).getString("url","");
+  if(!StationCatalog.valid(url)){
+   playing=false;handler.removeCallbacksAndMessages(null);release();station=wanted;report("stopped");stopForeground(true);stopSelf();return START_NOT_STICKY;
+  }
   if(playing&&wanted==station&&url.equals(currentUrl)&&player!=null)return START_STICKY;
   playing=true;station=wanted;handler.removeCallbacksAndMessages(null);release();retries=0;attempt=0;
   if(station>=0&&station<6){candidates=StationCatalog.urls(this,station);String preferred=Schedule.prefs(this).getString("last_good_"+station,"");if(!preferred.isEmpty()&&station!=1&&station!=2){java.util.LinkedHashSet<String> all=new java.util.LinkedHashSet<>();all.add(preferred);for(String u:candidates)all.add(u);candidates=all.toArray(new String[0]);}}
