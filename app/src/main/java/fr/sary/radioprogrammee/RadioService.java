@@ -14,7 +14,7 @@ public class RadioService extends Service {
   String url=Schedule.prefs(this).getString("url",StationCatalog.DEFAULTS[0][0]);
   if(playing&&wanted==station&&url.equals(currentUrl)&&player!=null)return START_STICKY;
   playing=true;station=wanted;handler.removeCallbacksAndMessages(null);release();retries=0;attempt=0;
-  if(station>=0&&station<6){candidates=StationCatalog.urls(this,station);String preferred=Schedule.prefs(this).getString("last_good_"+station,"");if(!preferred.isEmpty()){java.util.LinkedHashSet<String> all=new java.util.LinkedHashSet<>();all.add(preferred);for(String u:candidates)all.add(u);candidates=all.toArray(new String[0]);}}
+  if(station>=0&&station<6){candidates=StationCatalog.urls(this,station);String preferred=Schedule.prefs(this).getString("last_good_"+station,"");if(!preferred.isEmpty()&&station!=1&&station!=2){java.util.LinkedHashSet<String> all=new java.util.LinkedHashSet<>();all.add(preferred);for(String u:candidates)all.add(u);candidates=all.toArray(new String[0]);}}
   else candidates=new String[]{url};
   currentUrl=url;startForeground(1,notification("Connexion en cours"));connect();return START_STICKY;
  }

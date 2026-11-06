@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "stations": [
     {
       "name": "Chérie FM",
@@ -11,8 +11,7 @@
     {
       "name": "RTL",
       "urls": [
-        "https://streamer-02.rtl.fr/rtl-1-44-128",
-        "https://streamer-01.rtl.fr/rtl-1-44-128"
+        "https://icecast.rtl.fr/rtl-1-44-128"
       ]
     },
     {

@@ -1,5 +1,5 @@
-# Radio Programmée V1.2 Premium
+# Radio Programmée V1.3 Premium
 
-Interface bleu nuit, sélection tactile, programmation et lecture en arrière-plan.
+Recherche de stations par nom via Radio Browser (Internet requis), écoute immédiate, favoris persistants, correction des flux RTL et RFM, programmations conservées.
 
-`stations.json` contient les URLs actualisables. Modifier ce fichier sur la branche `main` de GitHub pour déployer une nouvelle liste de flux sans reconstruire l’APK. L’application tente de la télécharger au démarrage et conserve sa dernière liste valide si le réseau échoue. Les URLs fournies sont des candidats, pas des flux garantis.
+Les stations trouvées proviennent d’un annuaire communautaire : certains flux peuvent ne pas fonctionner.
